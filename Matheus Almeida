@@ -1,0 +1,115 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <locale.h>
+int main()
+{   setlocale(LC_ALL,"Portuguese");
+    int nivel,valor,secreto,max,min, pontI;
+    printf("Digite o nível conforme abaixo:\n\nN°1-Fácil - pontuação inicial 30 ( 10 tentativas e a cada erro se perde 3 pontos) \nN°2-Médio - pontuação inicial 50 (10 tentativas e a cada erro se perde 5 pontos)  \nN°3-Dificil - pontuação inicial 100 (5 tentativas e a cada erro se perde 20 pontos)\n");
+    scanf("%d",&nivel);
+    switch (nivel)
+    {
+        case 1:
+            min = 1;
+            max = 20;
+            srand(time(0));
+            secreto = min+rand() % 20;
+            pontI=30;
+            while (valor != secreto && min <= 10)
+            {
+        printf("\nAdvinhe o numero gerado (entre 1 e 20): ");
+            scanf("%d",&valor);
+        if (valor == secreto)
+                {
+        printf("\nParabéns você acertou!: %d",secreto);
+        printf("\nSua pontuação é de: %d",pontI);
+                }else
+                {pontI=pontI-3;
+                    if(valor < secreto)
+                    {
+        printf("\nErrou.\n\n\n O numero é maior!");
+
+                    }else
+                    {
+        printf("\nErrou.\n\n\n O valor é menor!");
+                    }
+                }
+            min = min+1;
+            max = max-3;
+            if (min > 10)
+            {
+        printf("\nVocê perdeu!!\n\nAperte Enter para sair!");
+            }
+            }
+        break;
+         case 2:
+            min = 1;
+            max = 50;
+            srand(time(0));
+            secreto = min+rand() % 50;
+            pontI=50;
+            while (valor != secreto && min <= 10)
+            {
+        printf("\nAdvinhe o numero gerado (entre 1 e 50): ");
+            scanf("%d",&valor);
+        if (valor == secreto)
+                {
+        printf("\nParabéns você acertou!: %d",secreto);
+        printf("\nSua pontuação é de: %d",pontI);
+                }else
+                {pontI=pontI-5;
+                    if(valor < secreto)
+                    {
+        printf("\nErrou.\n\n\n O numero é maior!");
+
+                    }else
+                    {
+        printf("\nErrou.\n\n\n O valor é menor!");
+                    }
+                }
+            min = min+1;
+            max = max-5;
+            if (min > 10)
+            {
+        printf("\nVocê perdeu!!\n\nAperte Enter para sair!");
+            }
+            }
+        break;
+        case 3:
+            min = 1;
+            max = 100;
+            srand(time(0));
+            secreto = min+rand() % 100;
+            pontI=100;
+            while (valor != secreto && min <= 10)
+            {
+        printf("\nAdvinhe o numero gerado (entre 1 e 100): ");
+            scanf("%d",&valor);
+        if (valor == secreto)
+                {
+        printf("\nParabéns você acertou!: %d",secreto);
+        printf("\nSua pontuação é de: %d",pontI);
+                }else
+                {pontI=pontI-20;
+                    if(valor < secreto)
+                    {
+        printf("\nErrou.\n\n\n O numero é maior!");
+
+                    }else
+                    {
+        printf("\nErrou.\n\n\n O valor é menor!");
+                    }
+                }
+            min = min+1;
+            max = max-20;
+            if (min > 5)
+            {
+      printf("\nVocê perdeu!!\n\nAperte Enter para sair!");
+            }
+            }
+        break;
+    }
+    return 0;
+}
+
